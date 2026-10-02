@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Save Options
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Save Options</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-textarea label="File Name" placeholder="" [(ngModel)]="filename"></ion-textarea>
+  <ion-button (click)="saveIt()">Save</ion-button>
+  <p>preview:</p>
+  <canvas #canvas2 width="150" height="150">
+
+  </canvas>
+</ion-content>

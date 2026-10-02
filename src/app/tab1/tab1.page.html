@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+      
+    </ion-toolbar>
+  </ion-header>
+  <ion-button id="present-alert" (click)="presentAlert1()">Settings</ion-button>
+  <!-- <ion-alert
+    trigger="present-alert"
+    header="Select your favorite color"
+    [buttons]="alertButtons1"
+    [inputs]="alertInputs1"
+  ></ion-alert>
+  <ion-alert
+    trigger="fontcolor-alert"
+    header="select font color"
+    [buttons]="alertButtons2"
+    [inputs]="alertInputs2"
+  ></ion-alert>
+  <ion-alert
+    trigger="fontsize-alert"
+    header="select font size"
+    [buttons]="alertButtons3"
+    [inputs]="alertInputs3"
+  ></ion-alert> -->
+  <div id="import_start" [style.color]="fontColor" [style.fontSize]="fontSize">
+    <ion-input type="file" accept="image" (change)="chooseFile($event)"></ion-input>
+  </div>
+  <canvas #canvas1 width="400" height="400">
+
+  </canvas>
+  <div id="slidecontainer" [style.color]="fontColor" [style.fontSize]="fontSize">
+    <ion-range (ionChange)="onIonChangeX($event)" *ngIf="imageLoaded"  labelPlacement="start" label="X"></ion-range>
+    <ion-range (ionChange)="onIonChangeY($event)" *ngIf="imageLoaded" labelPlacement="start" label="Y"></ion-range>
+    <ion-textarea (ionChange)="onIonChangeText($event)" [(ngModel)]="text" label="Text on image:" *ngIf="imageLoaded" placeholder="Type something here"></ion-textarea>
+    <ion-radio-group *ngIf="imageLoaded" value="color" (ionChange)="colorChanged($event)">
+      <ion-radio value="#ed0e0e">Red</ion-radio><br />
+      <ion-radio value="#0e4aed">Blue</ion-radio><br />
+      <ion-radio value="#000000">Black</ion-radio><br />
+    </ion-radio-group>
+
+  </div>
+  
+ 
+</ion-content>
